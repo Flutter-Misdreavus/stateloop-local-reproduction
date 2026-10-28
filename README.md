@@ -4,13 +4,34 @@ Independent, scaled reproduction of [StateLoop: Persistent State for Looped Tran
 
 ## Status
 
-Preparation started 2026-10-28 11:38:32 UTC. Absolute deadline: **2026-10-30 11:38:32 UTC**. Training has not started. Results are not yet available.
+Preparation started 2026-10-28 11:38:32 UTC. Absolute deadline: **2026-10-30 11:38:32 UTC**.
+
+The preferred 52.8M/53.4M models passed structural checks, FP16 checks and tiny-data fitting. See [preflight review](experiments/stateloop-20261028-local48/preflight-review.md) and its linked JSON evidence. These checks are not language-model results.
+
+When formal execution starts, [matrix.json](experiments/stateloop-20261028-local48/matrix.json) records live stage status. At completion, [assessment.json](experiments/stateloop-20261028-local48/assessment.json) and [results.md](experiments/stateloop-20261028-local48/results.md) contain automated measurements. These links are created by the relevant stage; automated completion is not scientific review. Stage results and hourly progress snapshots are pushed to this repository.
 
 ## Registered comparison
 
 Vanilla Looped, reset-state, and persistent StateLoop, each with seeds 17 and 42. The primary comparison is held-out token NLL(reset) minus NLL(persistent). All runs use matched original-token budgets, paired backbone initialization and data order. Reset and persistent variants have identical parameter counts and initial weights. Both seed differences must be positive and their mean at least 0.005 nat/token for preliminary support; two seeds do not establish strong statistical significance.
 
 Read `configs/protocol.json` for the 48-hour budget, correctness gates, candidate models, data split and stopping conditions. Model size and token budget will be frozen from throughput measurements before formal training. The preferred model is approximately 53M parameters; a predeclared approximately 29M fallback is permitted only before formal results.
+
+## Reproduction commands
+
+Use Python 3.10 with the pinned requirements and a PyTorch 2.2.2 CUDA 12.1 build that supports V100. The original local run reuses an existing isolated environment; it does not modify global packages.
+
+```bash
+python -m pytest -q tests
+python scripts/prepare.py
+python -m stateloop.preflight benchmark --candidate preferred --output experiments/stateloop-20261028-local48/benchmark-preferred.json
+python -m stateloop.preflight overfit --candidate preferred --output experiments/stateloop-20261028-local48/overfit-preferred.json
+# After source integrity and real-data smoke review, use the committed frozen.json:
+python -m stateloop.supervise
+```
+
+The supervisor is configured to publish to the repository owner used by the original run. A different user should run the individual trainer/evaluator commands or explicitly configure their own publication destination. Existing run directories are not silently overwritten. The original absolute deadline is deliberately enforced; reruns require a newly registered protocol with a new deadline.
+
+Data preparation downloads pinned text parquet shards, validates their SHA256, assigns normalized-document hashes to disjoint splits, and excludes held-out documents with matching aligned 512-token blocks. This detects exact overlap, not all possible near-duplicate or semantic leakage. Training packs documents separated by EOS; evaluation uses document-bounded windows with masked padding. Raw data and per-document evaluation arrays remain local.
 
 ## Scope and limitations
 
