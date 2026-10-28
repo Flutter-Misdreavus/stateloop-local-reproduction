@@ -8,15 +8,15 @@ Preparation started 2026-10-28 11:38:32 UTC. Absolute deadline: **2026-10-30 11:
 
 The preferred 52.8M/53.4M models passed structural checks, FP16 checks and tiny-data fitting. See [preflight review](experiments/stateloop-20261028-local48/preflight-review.md) and its linked JSON evidence. These checks are not language-model results.
 
-The local managed service is active. [launch.json](experiments/stateloop-20261028-local48/launch.json) tracks data preparation and the real-data smoke gate before the formal matrix begins. The full workflow stops on a failed gate and preserves the failure; it does not silently change settings or retry scientific results.
+Data preparation, the real-data smoke gate, and an [independent input audit](experiments/stateloop-20261028-local48/input-audit.json) passed. The preferred model and 99,991,552 prediction tokens per run are frozen. The six-run formal matrix is underway; Vanilla seed 17 completed its full budget and passed the basic learning gate. The full workflow stops on a failed gate and preserves the failure; it does not silently change settings or retry scientific results.
 
-When formal execution starts, [matrix.json](experiments/stateloop-20261028-local48/matrix.json) records live stage status. At completion, [assessment.json](experiments/stateloop-20261028-local48/assessment.json) and [results.md](experiments/stateloop-20261028-local48/results.md) contain automated measurements. These links are created by the relevant stage; automated completion is not scientific review. Stage results and hourly progress snapshots are pushed to this repository.
+[matrix.json](experiments/stateloop-20261028-local48/matrix.json) records stage status, and [launch.json](experiments/stateloop-20261028-local48/launch.json) preserves the preparation/smoke workflow. At completion, `assessment.json` and `results.md` in the matrix directory will contain automated measurements, followed by an independent completion audit and scientific review. Stage results and hourly progress snapshots are pushed to this repository.
 
 ## Registered comparison
 
 Vanilla Looped, reset-state, and persistent StateLoop, each with seeds 17 and 42. The primary comparison is held-out token NLL(reset) minus NLL(persistent). All runs use matched original-token budgets, paired backbone initialization and data order. Reset and persistent variants have identical parameter counts and initial weights. Both seed differences must be positive and their mean at least 0.005 nat/token for preliminary support; two seeds do not establish strong statistical significance.
 
-Read `configs/protocol.json` for the 48-hour budget, correctness gates, candidate models, data split and stopping conditions. Model size and token budget will be frozen from throughput measurements before formal training. The preferred model is approximately 53M parameters; a predeclared approximately 29M fallback is permitted only before formal results.
+Read `configs/protocol.json` for the 48-hour budget, correctness gates, candidate models, data split and stopping conditions. Throughput and smoke measurements selected the approximately 53M preferred model before formal training. `configs/frozen.json` records the fixed settings; the smaller predeclared fallback was not used. [Method traceability](experiments/stateloop-20261028-local48/method-traceability.md) maps the implementation to paper equations and distinguishes local choices from paper specifications.
 
 ## Reproduction commands
 

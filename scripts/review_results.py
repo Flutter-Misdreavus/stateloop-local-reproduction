@@ -13,6 +13,7 @@ import sys
 from datetime import datetime
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import numpy as np
+import torch
 from stateloop.runtime import digest,dump
 
 
@@ -54,6 +55,7 @@ def independent_bootstrap(a,b):
 
 
 def main():
+    torch.set_num_threads(4)
     matrix=json.load(open(ROOT/"matrix.json"))
     assessment=json.load(open(ROOT/"assessment.json"))
     frozen=json.load(open("configs/frozen.json"))
@@ -89,6 +91,13 @@ def main():
         checkpoint=run["checkpoint"]
         assert digest(checkpoint["path"])==checkpoint["sha256"]
         assert Path(checkpoint["path"]).stat().st_size==checkpoint["bytes"]
+        saved=torch.load(checkpoint["path"],map_location="cpu")
+        assert saved["tokens"]==run["tokens"] and saved["run_commit"]==run["run_commit"]
+        assert saved["config"]==run["config"] and saved["seed"]==run["seed"]
+        assert sum(t.numel() for t in saved["model"].values())==run["params"]
+        assert run["params"]==(52_795_776 if run["variant"]=="vanilla" else 53_387_136)
+        assert all(torch.isfinite(t).all().item() for t in saved["model"].values())
+        del saved
         training=[json.loads(line) for line in (Path("experiments")/run_id/"training.jsonl").read_text().splitlines()]
         assert training[-1]["tokens"]==run["tokens"]
         assert all(a["step"]<b["step"] for a,b in zip(training,training[1:]))
