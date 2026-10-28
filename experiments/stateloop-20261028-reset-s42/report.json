@@ -1,0 +1,38 @@
+{
+  "run_id": "stateloop-20261028-reset-s42",
+  "status": "RUNNING",
+  "variant": "reset",
+  "seed": 42,
+  "config": {
+    "vocab_size": 50304,
+    "layers": 8,
+    "width": 384,
+    "heads": 6,
+    "ffn": 1024,
+    "state_width": 384,
+    "loops": 4,
+    "seq_len": 512,
+    "variant": "reset"
+  },
+  "params": 53387136,
+  "run_commit": "c39a3fe476fa44ea8581ddf1bb186e9c467e4c72",
+  "frozen_config_sha256": "39a0cf909697800185666a5b7b4a58489a1a65ab642b435fc187a0f7328c5b75",
+  "data_manifest_sha256": "afba448f63468da5c8aef844bdb5f2c2d409a12d6f9b590717dd61b99be50be3",
+  "target_tokens": 99991552,
+  "tokens": 25395200,
+  "steps": 1550,
+  "started_epoch": 1793206310.8396435,
+  "failures": [],
+  "reliability": "PENDING",
+  "initial_dev": {
+    "nll": 10.913743998112679,
+    "ppl": 54926.1040508244,
+    "nll_sum": 10913743.998112679,
+    "tokens": 1000000
+  },
+  "wall_deadline_epoch": 1793315657.5557919,
+  "last_train_nll": 4.63734233379364,
+  "last_lr": 0.00026380795717945876,
+  "peak_memory_bytes": 6457964032,
+  "last_progress_epoch": 1793207157.0600479
+}
