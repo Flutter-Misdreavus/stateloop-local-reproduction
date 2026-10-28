@@ -1,0 +1,12 @@
+runtime/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.parquet
+*.log
+.env
+.credentials*
