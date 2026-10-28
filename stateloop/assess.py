@@ -57,6 +57,12 @@ def main():
     torch.set_num_threads(4)
     device = torch.device("cuda:0")
     frozen = json.load(open("configs/frozen.json"))
+    if digest("runtime/data/manifest.json") != frozen["data_manifest_sha256"]:
+        raise RuntimeError("Evaluation data manifest differs from frozen protocol")
+    manifest = json.load(open("runtime/data/manifest.json"))
+    for name in ["calibration.npz", "test.npz"]:
+        if digest("runtime/data/"+name) != manifest["artifacts"][name]["sha256"]:
+            raise RuntimeError("Evaluation data hash mismatch")
     matrix = json.load(open(args.matrix))
     root = Path("experiments/stateloop-20261028-local48")
     output = {"status": "RUNNING", "evaluation_commit": commit(), "started_epoch": time.time(), "runs": [], "paired": [], "interventions": []}

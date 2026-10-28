@@ -51,6 +51,8 @@ def main():
     if report_path.exists() and not args.resume:
         raise RuntimeError("Run directory already has a report; use a new run_id or explicit resume")
     data_manifest = json.load(open("runtime/data/manifest.json"))
+    if digest("runtime/data/manifest.json") != frozen["data_manifest_sha256"]:
+        raise RuntimeError("Data manifest differs from frozen protocol")
     if digest("runtime/data/train.bin") != data_manifest["artifacts"]["train.bin"]["sha256"]:
         raise RuntimeError("Training data hash mismatch")
     model = StateLoopLM(cfg, seed=args.seed).to(device)
@@ -63,7 +65,7 @@ def main():
     start_step = 0
     if args.resume:
         old = torch.load(checkpoint, map_location=device)
-        if old["report"]["frozen_config_sha256"] != report["frozen_config_sha256"]:
+        if old["report"]["frozen_config_sha256"] != report["frozen_config_sha256"] or old["report"]["data_manifest_sha256"] != report["data_manifest_sha256"]:
             raise RuntimeError("Resume configuration changed")
         if old["report"]["config"] != asdict(cfg) or old["report"]["seed"] != args.seed:
             raise RuntimeError("Resume identity changed")

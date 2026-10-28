@@ -31,7 +31,19 @@ def fetch(url, target, expected=None):
         return
     target.parent.mkdir(parents=True, exist_ok=True)
     tmp = target.with_suffix(target.suffix + ".part")
-    subprocess.run(["curl", "-fL", "--continue-at", "-", "--retry", "2", "--retry-all-errors", "--connect-timeout", "15", "--max-time", "7200", "-o", str(tmp), url], check=True)
+    # curl's internal retries rewind to the initial offset and discard newly
+    # received bytes. Separate bounded invocations resume from the latest size.
+    transfer_start = time.monotonic()
+    for attempt in range(5):
+        remaining = 7200 - (time.monotonic()-transfer_start)
+        if remaining <= 0:
+            raise TimeoutError("Pinned file transfer exceeded two hours")
+        result = subprocess.run(["curl", "-fL", "--continue-at", "-", "--retry", "0", "--connect-timeout", "15", "--max-time", str(int(min(1800, remaining))), "-o", str(tmp), url])
+        if result.returncode == 0:
+            break
+        if attempt == 4:
+            raise RuntimeError(f"Pinned transfer failed after five resumable attempts: {target.name}")
+        time.sleep(2)
     if expected and sha(tmp) != expected:
         raise RuntimeError("SHA256 mismatch: " + target.name)
     tmp.replace(target)
