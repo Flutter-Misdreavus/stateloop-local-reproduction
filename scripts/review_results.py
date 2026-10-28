@@ -61,7 +61,7 @@ def main():
     frozen=json.load(open("configs/frozen.json"))
     manifest=json.load(open("runtime/data/manifest.json"))
     deadline=datetime.fromisoformat(frozen["deadline_utc"].replace("Z","+00:00")).timestamp()
-    assert matrix["status"]=="SUCCEEDED_PENDING_REVIEW", "matrix is not complete"
+    assert matrix["status"] in {"SUCCEEDED_PENDING_REVIEW","SUCCEEDED_REVIEWED"}, "matrix is not complete"
     assert assessment["status"]=="SUCCEEDED", "assessment is not complete"
     assert assessment["ended_epoch"]<=deadline
     assert {(r["variant"],r["seed"]) for r in matrix["runs"]}==EXPECTED
@@ -69,7 +69,7 @@ def main():
     assert digest("runtime/data/manifest.json")==frozen["data_manifest_sha256"]
     for name,info in manifest["artifacts"].items():
         assert digest(Path("runtime/data")/name)==info["sha256"]
-    report={"status":"RUNNING","review_commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),"assessment_sha256":digest(ROOT/"assessment.json"),"frozen_config_sha256":digest("configs/frozen.json"),"runs":[],"recomputed_pairs":[],"scientific_review":"PENDING"}
+    report={"status":"RUNNING","review_commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),"assessment_sha256":digest(ROOT/"assessment.json"),"frozen_config_sha256":digest("configs/frozen.json"),"runs":[],"recomputed_pairs":[],"scientific_review":"Separate review.md; this artifact certifies numerical and execution checks only"}
     documents={}
     for entry in matrix["runs"]:
         run_id=entry["run_id"]

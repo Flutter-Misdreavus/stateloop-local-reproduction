@@ -55,7 +55,7 @@ def main():
         axes[1].hlines(i,lo,hi,color=COLORS["persistent"],linewidth=2)
         axes[1].scatter([p["delta_nll"]],[i],color=COLORS["persistent"],s=50)
     axes[1].axvline(0,color="black",linewidth=.8)
-    axes[1].axvline(.005,color="gray",linestyle=":",linewidth=1,label="Registered effect threshold")
+    axes[1].axvline(.005,color="gray",linestyle=":",linewidth=1,label="Threshold for mean across seeds")
     axes[1].set(yticks=[0,1],yticklabels=["Seed 17","Seed 42"],xlabel="NLL(reset) - NLL(StateLoop)",title="Paired persistence effect")
     axes[1].legend(fontsize=7)
     for ax in axes:
@@ -63,16 +63,21 @@ def main():
     fig.text(.5,-.02,"Intervals: 95% paired document bootstrap, conditional on each trained pair; not seed uncertainty.",ha="center",fontsize=8)
     fig.tight_layout()
     save(fig,"primary-comparison")
-    names=["feedback_off","terminal_off","all_off","single_S1","frozen_S1","single_S2","frozen_S2","single_S3","frozen_S3"]
-    fig,ax=plt.subplots(figsize=(10,4.5))
-    for shift,seed,color in [(-.18,17,"#0891b2"),(.18,42,"#7c3aed")]:
-        values={r["intervention"]:r["delta_nll"] for r in assessment["interventions"] if r["seed"]==seed}
-        ax.bar(np.arange(len(names))+shift,[values[n] for n in names],width=.36,label=f"Seed {seed}",color=color)
-    ax.axhline(0,color="black",linewidth=.8)
-    ax.set(xticks=np.arange(len(names)),xticklabels=[n.replace("_"," ") for n in names],ylabel="NLL increase over unmodified StateLoop",title="Read masking and calibrated state reuse")
-    plt.setp(ax.get_xticklabels(),rotation=35,ha="right")
-    ax.legend()
-    ax.grid(axis="y",alpha=.18)
+    groups=[("Read masks",["feedback_off","terminal_off","all_off"]),
+            ("Single calibrated replacement",[f"single_S{k}" for k in range(1,4)]),
+            ("Frozen calibrated reuse",[f"frozen_S{k}" for k in range(1,4)])]
+    fig,axes=plt.subplots(1,3,figsize=(12,4))
+    for ax,(title,names) in zip(axes,groups):
+        for shift,seed,color in [(-.18,17,"#0891b2"),(.18,42,"#7c3aed")]:
+            values={r["intervention"]:r["delta_nll"] for r in assessment["interventions"] if r["seed"]==seed}
+            bars=ax.bar(np.arange(len(names))+shift,[values[n] for n in names],width=.36,label=f"Seed {seed}",color=color)
+            ax.bar_label(bars,fmt="%.3f",fontsize=7,padding=3)
+        ax.set(xticks=np.arange(len(names)),xticklabels=[n.replace("_"," ") for n in names],ylabel="NLL increase (nat/token)",title=title)
+        ax.set_ylim(0,ax.get_ylim()[1]*1.15)
+        ax.tick_params(axis="x",labelsize=8)
+        ax.grid(axis="y",alpha=.18)
+    axes[0].legend(fontsize=8)
+    fig.text(.5,-.02,"Separate y-scales. Interventions perturb a trained model; read masks are not retrained baselines or Shapley shares.",ha="center",fontsize=8)
     fig.tight_layout()
     save(fig,"state-interventions")
 
