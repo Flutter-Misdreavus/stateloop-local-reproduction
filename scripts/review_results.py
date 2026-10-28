@@ -10,6 +10,7 @@ import math
 from pathlib import Path
 import subprocess
 import sys
+from datetime import datetime
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import numpy as np
 from stateloop.runtime import digest,dump
@@ -57,8 +58,10 @@ def main():
     assessment=json.load(open(ROOT/"assessment.json"))
     frozen=json.load(open("configs/frozen.json"))
     manifest=json.load(open("runtime/data/manifest.json"))
+    deadline=datetime.fromisoformat(frozen["deadline_utc"].replace("Z","+00:00")).timestamp()
     assert matrix["status"]=="SUCCEEDED_PENDING_REVIEW", "matrix is not complete"
     assert assessment["status"]=="SUCCEEDED", "assessment is not complete"
+    assert assessment["ended_epoch"]<=deadline
     assert {(r["variant"],r["seed"]) for r in matrix["runs"]}==EXPECTED
     assert len(matrix["runs"])==6 and len(assessment["runs"])==6
     assert digest("runtime/data/manifest.json")==frozen["data_manifest_sha256"]
@@ -72,6 +75,7 @@ def main():
         key=(run["variant"],run["seed"])
         assert key==(entry["variant"],entry["seed"])
         assert run["status"]=="SUCCEEDED" and run["reliability"]=="MET" and not run["failures"]
+        assert run["ended_or_updated_epoch"]<=deadline
         assert run["tokens"]==run["target_tokens"]==frozen["tokens_per_run"]
         assert run["steps"]*frozen["batch_sequences"]*frozen["model"]["seq_len"]==run["tokens"]
         assert run["frozen_config_sha256"]==report["frozen_config_sha256"]
@@ -92,7 +96,9 @@ def main():
         test=json.load(open(Path("experiments")/run_id/"test.json"))
         raw=json.load(open(Path("runtime/runs")/run_id/"test-document-nll.json"))
         documents[key]=raw
+        metric_check(raw)
         metric_check(test)
+        close(raw["nll"],test["nll"])
         assert test["tokens"]==manifest["artifacts"]["test.npz"]["tokens"]
         close(sum(x[0] for x in raw["documents"].values()),test["nll_sum"],atol=1e-7)
         assert sum(x[1] for x in raw["documents"].values())==test["tokens"]
@@ -119,6 +125,13 @@ def main():
     expected_effects={"feedback_off","terminal_off","all_off"}|{f"{mode}_S{k}" for mode in ["single","frozen"] for k in range(1,4)}
     assert len(assessment["interventions"])==18
     for seed in [17,42]:
+        calibration=json.load(open(Path("experiments")/f"stateloop-20261028-persistent-s{seed}"/"calibration.json"))
+        assert calibration["positions"]==500_000
+        for name in ["mean","std"]:
+            values=np.asarray(calibration[name])
+            assert values.shape==(4,384) and np.isfinite(values).all()
+            if name=="std":
+                assert (values>=0).all()
         effects={r["intervention"]:r for r in assessment["interventions"] if r["seed"]==seed}
         assert set(effects)==expected_effects
         for effect in effects.values():
