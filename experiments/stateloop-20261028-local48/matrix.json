@@ -23,7 +23,8 @@
       "variant": "persistent",
       "seed": 17,
       "run_id": "stateloop-20261028-persistent-s17",
-      "status": "RUNNING"
+      "status": "SUCCEEDED",
+      "run_commit": "cb2a371c35107c6fb154ef5476b72aa3bb44c234"
     },
     {
       "variant": "persistent",
