@@ -37,7 +37,7 @@
       "variant": "reset",
       "seed": 42,
       "run_id": "stateloop-20261028-reset-s42",
-      "status": "PENDING"
+      "status": "RUNNING"
     },
     {
       "variant": "vanilla",
