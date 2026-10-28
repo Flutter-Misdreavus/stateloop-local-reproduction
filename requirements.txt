@@ -4,3 +4,4 @@ tokenizers==0.21.0
 numpy==1.26.4
 pyarrow==18.1.0
 pytest==8.4.2
+matplotlib==3.10.7
