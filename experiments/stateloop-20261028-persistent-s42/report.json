@@ -1,0 +1,38 @@
+{
+  "run_id": "stateloop-20261028-persistent-s42",
+  "status": "RUNNING",
+  "variant": "persistent",
+  "seed": 42,
+  "config": {
+    "vocab_size": 50304,
+    "layers": 8,
+    "width": 384,
+    "heads": 6,
+    "ffn": 1024,
+    "state_width": 384,
+    "loops": 4,
+    "seq_len": 512,
+    "variant": "persistent"
+  },
+  "params": 53387136,
+  "run_commit": "f88c7d9e96ea87dbf050970970b002123af145d4",
+  "frozen_config_sha256": "39a0cf909697800185666a5b7b4a58489a1a65ab642b435fc187a0f7328c5b75",
+  "data_manifest_sha256": "afba448f63468da5c8aef844bdb5f2c2d409a12d6f9b590717dd61b99be50be3",
+  "target_tokens": 99991552,
+  "tokens": 26214400,
+  "steps": 1600,
+  "started_epoch": 1793203015.6954062,
+  "failures": [],
+  "reliability": "PENDING",
+  "initial_dev": {
+    "nll": 10.916300112791061,
+    "ppl": 55066.681060553165,
+    "nll_sum": 10916300.112791061,
+    "tokens": 1000000
+  },
+  "wall_deadline_epoch": 1793315657.5557919,
+  "last_train_nll": 4.808194637298584,
+  "last_lr": 0.00026135782674320426,
+  "peak_memory_bytes": 6484801024,
+  "last_progress_epoch": 1793203877.9549892
+}
