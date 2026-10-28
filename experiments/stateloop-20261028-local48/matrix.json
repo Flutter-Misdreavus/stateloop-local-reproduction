@@ -44,7 +44,7 @@
       "variant": "vanilla",
       "seed": 42,
       "run_id": "stateloop-20261028-vanilla-s42",
-      "status": "PENDING"
+      "status": "RUNNING"
     }
   ]
 }
