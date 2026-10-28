@@ -1,0 +1,143 @@
+{
+  "audit_commit": "db289912a7ece1eb8bec261bae10d9fdce687f5a",
+  "status": "PASSED",
+  "split_checks": {
+    "dev": {
+      "documents": 854,
+      "tokens": 1000000,
+      "hash_partition_membership": true,
+      "artifact_sha256_verified": true
+    },
+    "calibration": {
+      "documents": 352,
+      "tokens": 500000,
+      "hash_partition_membership": true,
+      "artifact_sha256_verified": true
+    },
+    "test": {
+      "documents": 753,
+      "tokens": 1000000,
+      "hash_partition_membership": true,
+      "artifact_sha256_verified": true
+    }
+  },
+  "sampled_document_checks": [
+    {
+      "split": "calibration",
+      "document_sha256": "fff00499457df89555206b5bf9a625228f9cbd39ddc198efaea76c6b1d3352c7",
+      "windows": 6,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "calibration",
+      "document_sha256": "ffa2a6958f973c6e6e4ec2f67b0a9faa7ec64f5b6f3fba6b6ff1d242d9a831f3",
+      "windows": 2,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "test",
+      "document_sha256": "ff8b2f88168911f554abccaf9183c361140f2bdb64edb8defdf42d478c32ce47",
+      "windows": 1,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "test",
+      "document_sha256": "ffe4b5f18bc84473b6070382b84441f6a12c9fff2bfc5e9a03c09e713724c5b8",
+      "windows": 22,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "dev",
+      "document_sha256": "fff0c9fa600f4b1d163200ba05250c182ef33cea14c51cbbdefe5e995f5ca2c3",
+      "windows": 1,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "calibration",
+      "document_sha256": "00d9ba8f05a4b895be70b0643aa538b14f03c6f3f594e997333cd682f08fec11",
+      "windows": 1,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "dev",
+      "document_sha256": "0060a8b478bb08c5de1f1cbd3ba01e538bed7cab126a08980c5d5ee9f1fcbb16",
+      "windows": 1,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "test",
+      "document_sha256": "00002f169cc02730f16fe16c3d2aaf5a14376600db6dfd2d8d37a3397f1dafe3",
+      "windows": 8,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "dev",
+      "document_sha256": "00a631c6ba55cfad6dab0f26c9db9e65bad74f22cbd810c838477ba677852ab8",
+      "windows": 1,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "test",
+      "document_sha256": "003e2bb552643644d3961daa9d518ada0ba1f0e823298efe36f82ea6b7a2d96f",
+      "windows": 5,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "calibration",
+      "document_sha256": "01040a35e34232cfac04a1fb807cc36f808aaa41b21d398ed6aaa79bc3da13ab",
+      "windows": 1,
+      "source_retokenization_matches": true
+    },
+    {
+      "split": "dev",
+      "document_sha256": "ff712432cb8df7235c3ea8d4060c7a7b7f04af6b0604020b82afad4100a767e4",
+      "windows": 3,
+      "source_retokenization_matches": true
+    }
+  ],
+  "pairing": [
+    {
+      "seed": 17,
+      "hashes": {
+        "vanilla": {
+          "backbone_and_head": "207e31e65358cde581b7eaa5cd695569b3dbe63cd516fc4ac197dff94f889aaf",
+          "branch": null
+        },
+        "reset": {
+          "backbone_and_head": "207e31e65358cde581b7eaa5cd695569b3dbe63cd516fc4ac197dff94f889aaf",
+          "branch": "1f423c27b2cc3c8a6fd94b408a02d704cc710e61e7d3700908a033caee900891"
+        },
+        "persistent": {
+          "backbone_and_head": "207e31e65358cde581b7eaa5cd695569b3dbe63cd516fc4ac197dff94f889aaf",
+          "branch": "1f423c27b2cc3c8a6fd94b408a02d704cc710e61e7d3700908a033caee900891"
+        }
+      },
+      "passed": true
+    },
+    {
+      "seed": 42,
+      "hashes": {
+        "vanilla": {
+          "backbone_and_head": "7920839ad32e601451a69744b4b7219d538b0500d3f98634b57c19ded59c4153",
+          "branch": null
+        },
+        "reset": {
+          "backbone_and_head": "7920839ad32e601451a69744b4b7219d538b0500d3f98634b57c19ded59c4153",
+          "branch": "306763a6845fc21120c8af127649b75d692d94ce6fd52dff7bc86fe5e700c668"
+        },
+        "persistent": {
+          "backbone_and_head": "7920839ad32e601451a69744b4b7219d538b0500d3f98634b57c19ded59c4153",
+          "branch": "306763a6845fc21120c8af127649b75d692d94ce6fd52dff7bc86fe5e700c668"
+        }
+      },
+      "passed": true
+    }
+  ],
+  "test_quality_inspected": false,
+  "training_prefix_check": {
+    "tokens": 65536,
+    "reconstructed_from_pinned_source": true
+  },
+  "cross_split_document_intersection": 0,
+  "scope": "all held-out document hash assignments and disjointness; 12 source documents re-tokenized; first 65536 training tokens reconstructed; full-size initial tensors hashed. Does not prove absence of all near duplicates."
+}
