@@ -1,0 +1,64 @@
+{
+  "dataset": "EleutherAI/the_pile_deduplicated",
+  "revision": "fcbfcfde4222cbb1acd1d33bad0be250ee14b1bb",
+  "tokenizer_repository": "EleutherAI/pythia-70m",
+  "tokenizer_revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+  "tokenizer_sha256": "c24618a1b3e6a38167beff1c72cffd126c3a66254347304b50547d12c5f25624",
+  "vocab_size": 50277,
+  "model_vocab_size": 50304,
+  "eos": 0,
+  "source_files": [
+    {
+      "file": "data/train-01279-of-01650-02136c34c7bbc77f.parquet",
+      "sha256": "efe34861d298bb3f2a71759614cb0291bfa95b7b806f51a5de7c97e0b07ab42e",
+      "bytes": 266652832
+    },
+    {
+      "file": "data/train-00588-of-01650-b5955b6485a1a8a3.parquet",
+      "sha256": "f9cea3e6ea0b3c82b6de16392e6ca97e33987b4d4cf0e8353bc94fbcbeafc643",
+      "bytes": 264689536
+    }
+  ],
+  "artifacts": {
+    "train.bin": {
+      "sha256": "7a5ed28ec17a28b193c6b8b91daae6b43734275ede87247f173b7ba8083d45dd",
+      "tokens": 110000001,
+      "dtype": "uint16"
+    },
+    "dev.npz": {
+      "sha256": "a637cc130755cfbd0017f41ac42a1ef7e36a16eb3affd493d9f853b611fdce45",
+      "tokens": 1000000,
+      "windows": 2394,
+      "documents": 854
+    },
+    "calibration.npz": {
+      "sha256": "87c42c891842a237e82676ed10607d32fe05df68549c6d00329683ccf1d115e8",
+      "tokens": 500000,
+      "windows": 1160,
+      "documents": 352
+    },
+    "test.npz": {
+      "sha256": "20347e334e5b71120e34eb5179bbdfe006d2e08347422093a5b25c99bfc380c4",
+      "tokens": 1000000,
+      "windows": 2373,
+      "documents": 753
+    }
+  },
+  "documents_selected": {
+    "train": 72407,
+    "dev": 1253,
+    "calibration": 495,
+    "test": 1192
+  },
+  "duplicate_documents_skipped": 0,
+  "heldout_documents_with_exact_512_token_overlap_removed": {
+    "dev": 0,
+    "calibration": 0,
+    "test": 0
+  },
+  "split_rule": "normalized NFKC whitespace doc hash; salted SHA256 modulo 1000; train<975/dev<985/calibration<990/test otherwise",
+  "train_packing": "append EOS and concatenate documents within train only",
+  "eval_packing": "document-bounded windows, 512 predicted tokens, mask padding, include EOS",
+  "contamination_scope": "normalized exact document and aligned 512-token exact matches; semantic/near-duplicate absence not guaranteed",
+  "elapsed_s": 1515.8939535617828
+}

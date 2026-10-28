@@ -1,5 +1,5 @@
 {
-  "status": "PREPARING_DATA",
+  "status": "DATA_INTEGRITY_CHECK",
   "launch_commit": "4c35362a19102be28116af125b426f6f9a7e3533",
   "started_epoch": 1793192789.0351555,
   "data_execution_commit": "683d216",
@@ -7,5 +7,5 @@
   "preparation_deadline_epoch": 1793209112.0,
   "absolute_deadline_epoch": 1793360312.0,
   "scientific_review": "PENDING",
-  "last_checked_epoch": 1793192939.2041507
+  "last_checked_epoch": 1793193149.4287915
 }
