@@ -44,7 +44,8 @@
       "variant": "vanilla",
       "seed": 42,
       "run_id": "stateloop-20261028-vanilla-s42",
-      "status": "RUNNING"
+      "status": "SUCCEEDED",
+      "run_commit": "9a3ae5958abefcb66b3f5cf4fd1da60410cb2dfb"
     }
   ]
 }
