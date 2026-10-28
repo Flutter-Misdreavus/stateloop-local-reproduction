@@ -37,7 +37,8 @@
       "variant": "reset",
       "seed": 42,
       "run_id": "stateloop-20261028-reset-s42",
-      "status": "RUNNING"
+      "status": "SUCCEEDED",
+      "run_commit": "c39a3fe476fa44ea8581ddf1bb186e9c467e4c72"
     },
     {
       "variant": "vanilla",
