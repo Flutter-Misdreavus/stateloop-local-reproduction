@@ -16,7 +16,8 @@
       "variant": "reset",
       "seed": 17,
       "run_id": "stateloop-20261028-reset-s17",
-      "status": "RUNNING"
+      "status": "SUCCEEDED",
+      "run_commit": "11a017f5001679786467b855a47e24c0646e93b0"
     },
     {
       "variant": "persistent",
