@@ -1,6 +1,6 @@
 # StateLoop local results
 
-Automated measurements; scientific review pending.
+Automated measurements, now reviewed in [review.md](review.md). The original `assessment.json` remains unchanged; `review.json` binds the final review to its hash.
 
 | Variant | Seed | Test NLL | Test PPL |
 |---|---:|---:|---:|

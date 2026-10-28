@@ -1,0 +1,142 @@
+{
+  "status": "PASSED",
+  "review_commit": "8607def61814d22592844d2ba560e7c953ca7eb0",
+  "assessment_sha256": "3ae125594558ebaf42645664d7260fc86ed54d4266779476a4b1e5257b8b338b",
+  "frozen_config_sha256": "39a0cf909697800185666a5b7b4a58489a1a65ab642b435fc187a0f7328c5b75",
+  "runs": [
+    {
+      "run_id": "stateloop-20261028-vanilla-s17",
+      "variant": "vanilla",
+      "seed": 17,
+      "tokens": 99991552,
+      "run_commit": "2fae18a4eee399613b0ff1ec916a3408a7bd1d25",
+      "core_code_sha256": "d21db53052f831875d863d734447c70df7ec7a94288265c5817800a17859ad66",
+      "checkpoint_sha256": "08d2061008402cfefc4dc49f528b0e5edadf0089af6bebe2dd27bbca81fa3f98",
+      "test_nll": 4.1157558768795175,
+      "test_ppl": 61.298530897964035,
+      "training_elapsed_s": 3074.5935474559665,
+      "invocation_elapsed_s": 3103.458553791046,
+      "peak_memory_bytes": 6177072640
+    },
+    {
+      "run_id": "stateloop-20261028-reset-s17",
+      "variant": "reset",
+      "seed": 17,
+      "tokens": 99991552,
+      "run_commit": "11a017f5001679786467b855a47e24c0646e93b0",
+      "core_code_sha256": "d21db53052f831875d863d734447c70df7ec7a94288265c5817800a17859ad66",
+      "checkpoint_sha256": "08cb54083663b91630e0d67797c0277a66ff54aa80f9c701a1aa1d0cc030c544",
+      "test_nll": 4.0743728754586455,
+      "test_ppl": 58.81358557779241,
+      "training_elapsed_s": 3247.25962771615,
+      "invocation_elapsed_s": 3277.022928237915,
+      "peak_memory_bytes": 6457964032
+    },
+    {
+      "run_id": "stateloop-20261028-persistent-s17",
+      "variant": "persistent",
+      "seed": 17,
+      "tokens": 99991552,
+      "run_commit": "cb2a371c35107c6fb154ef5476b72aa3bb44c234",
+      "core_code_sha256": "d21db53052f831875d863d734447c70df7ec7a94288265c5817800a17859ad66",
+      "checkpoint_sha256": "7d5ace80216a84165f9f44a8fc00f6f1f2605f771071852a7b15b66358014342",
+      "test_nll": 4.0612007068653995,
+      "test_ppl": 58.04396303971425,
+      "training_elapsed_s": 3251.1733181970194,
+      "invocation_elapsed_s": 3281.0675489902496,
+      "peak_memory_bytes": 6487782912
+    },
+    {
+      "run_id": "stateloop-20261028-persistent-s42",
+      "variant": "persistent",
+      "seed": 42,
+      "tokens": 99991552,
+      "run_commit": "f88c7d9e96ea87dbf050970970b002123af145d4",
+      "core_code_sha256": "d21db53052f831875d863d734447c70df7ec7a94288265c5817800a17859ad66",
+      "checkpoint_sha256": "a55999e8544c9a69ff7ed5a2a9e23f421dff50342fa35462f2ef1c70ca3c5a4d",
+      "test_nll": 4.064998329223435,
+      "test_ppl": 58.264811174989596,
+      "training_elapsed_s": 3250.5728455660865,
+      "invocation_elapsed_s": 3279.93563079834,
+      "peak_memory_bytes": 6484801024
+    },
+    {
+      "run_id": "stateloop-20261028-reset-s42",
+      "variant": "reset",
+      "seed": 42,
+      "tokens": 99991552,
+      "run_commit": "c39a3fe476fa44ea8581ddf1bb186e9c467e4c72",
+      "core_code_sha256": "d21db53052f831875d863d734447c70df7ec7a94288265c5817800a17859ad66",
+      "checkpoint_sha256": "399bc8dce3e64218626caf664926941d6f85be2ace978921c8125d51159c5bed",
+      "test_nll": 4.081617838582291,
+      "test_ppl": 59.241235118458306,
+      "training_elapsed_s": 3251.787813663017,
+      "invocation_elapsed_s": 3282.2430860996246,
+      "peak_memory_bytes": 6457964032
+    },
+    {
+      "run_id": "stateloop-20261028-vanilla-s42",
+      "variant": "vanilla",
+      "seed": 42,
+      "tokens": 99991552,
+      "run_commit": "9a3ae5958abefcb66b3f5cf4fd1da60410cb2dfb",
+      "core_code_sha256": "d21db53052f831875d863d734447c70df7ec7a94288265c5817800a17859ad66",
+      "checkpoint_sha256": "30d118bc1712698185e9e191ff9a876ab73b742f2a4748d3b6a8f91dd07f37a3",
+      "test_nll": 4.12944290316667,
+      "test_ppl": 62.14329345767248,
+      "training_elapsed_s": 3056.89806580171,
+      "invocation_elapsed_s": 3085.9990026950836,
+      "peak_memory_bytes": 6177072640
+    }
+  ],
+  "recomputed_pairs": [
+    {
+      "seed": 17,
+      "persistence": {
+        "delta_nll": 0.013172168593245992,
+        "document_bootstrap_95pct": [
+          0.01055558757703462,
+          0.015704735281221516
+        ]
+      },
+      "total": {
+        "delta_nll": 0.054555170014118026,
+        "document_bootstrap_95pct": [
+          0.04799407848347717,
+          0.060888927550217145
+        ]
+      }
+    },
+    {
+      "seed": 42,
+      "persistence": {
+        "delta_nll": 0.01661950935885592,
+        "document_bootstrap_95pct": [
+          0.01474005227163972,
+          0.01848098044329592
+        ]
+      },
+      "total": {
+        "delta_nll": 0.0644445739432351,
+        "document_bootstrap_95pct": [
+          0.05660932428289922,
+          0.07199854965610165
+        ]
+      }
+    }
+  ],
+  "scientific_review": "Separate review.md; this artifact certifies numerical and execution checks only",
+  "mean_persistence_delta_nats": 0.014895838976050957,
+  "preliminary_support": true,
+  "all_six_training_code_identical": true,
+  "total_formal_training_tokens": 599949312,
+  "summed_training_hours": 5.3145236717777635,
+  "intervention_count": 18,
+  "limitations": [
+    "two training seeds",
+    "approximately 100M tokens per run",
+    "scaled architecture and deduplicated Pile subset",
+    "document bootstrap is conditional on trained models",
+    "exact-overlap checks do not exclude all near duplicates"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "status": "COMPLETE",
+  "decision": "ACCEPT_SCALED_MECHANISM_REPRODUCTION_WITH_PRELIMINARY_SUPPORT",
+  "reviewer": "GPT/Codex; same research session, not an independent external research team",
+  "completed_epoch": 1793213573.0314975,
+  "completed_utc": "2026-10-28T18:52:53.031497+00:00",
+  "source_head": "8607def61814d22592844d2ba560e7c953ca7eb0",
+  "assessment_sha256": "3ae125594558ebaf42645664d7260fc86ed54d4266779476a4b1e5257b8b338b",
+  "completion_audit_sha256": "7d8000266561c98f120963102b5d26adb11d328306e62cda575102e05713f83f",
+  "review_markdown_sha256": "4a3c8dffe9ab4134adf25b3b5bfcd188728dab4273538e0e7ac9837b1bd082f0",
+  "resources_sha256": "c97e31e815c01263e5d5ba17752883265119a3b3008b09f13b7284159939d670",
+  "figures": {
+    "figures/learning-curves.pdf": "610b36cbc95000366d9001d4b307e79ff6ba1282d1898c401d4cab5461be686b",
+    "figures/learning-curves.png": "965a6fa64240e11354f6c8ae334b54d8986a7dc7e1fa84f152e345e832913bbd",
+    "figures/primary-comparison.pdf": "b1b0a56890fe17d9184c5f1d6a0adf65944867e40be58b4a97bf158b8ddee927",
+    "figures/primary-comparison.png": "0c2781c3747226da3e30d71d23b56dc1760d6a8c0e08d9a32c6e2782c5dd0f87",
+    "figures/state-interventions.pdf": "8d91bbae3cb0423483c7a117dd5a37413894f8b118b17c25ecfacca1a34df8e4",
+    "figures/state-interventions.png": "f876cef1ab1d8d8b5fceb009f59bba9285bedf0363475743bde9980b7cf23a63"
+  },
+  "figures_visually_reviewed": [
+    "learning-curves.png",
+    "primary-comparison.png",
+    "state-interventions.png"
+  ],
+  "completed_requirements": [
+    "six exact fixed-token training runs",
+    "all reliability gates met",
+    "six held-out test evaluations after training gates",
+    "18 registered state interventions",
+    "checkpoint and data hashes audited",
+    "independent NLL/PPL and paired bootstrap recomputation",
+    "scientific findings distinguished from causal interpretations",
+    "three standalone PNG/PDF figures inspected",
+    "resources and incidents disclosed",
+    "actual run commits distinguished from later review revisions"
+  ],
+  "scientific_limits": [
+    "two training seeds",
+    "approximately 100M tokens per run; no convergence claim",
+    "scaled architecture and two-shard dataset",
+    "conditional document bootstrap, not seed-level significance",
+    "group masks, not exact Shapley",
+    "intervention distribution shift is not eliminated by moment calibration"
+  ],
+  "next_action": "Publish final artifacts and verify public remote main equals local HEAD; no additional scientific experiments."
+}

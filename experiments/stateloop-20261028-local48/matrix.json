@@ -1,5 +1,5 @@
 {
-  "status": "SUCCEEDED_PENDING_REVIEW",
+  "status": "SUCCEEDED_REVIEWED",
   "supervisor_commit": "659fe92ddd1645342adda5f47bcec0a19f9de508",
   "started_epoch": 1793193257.5557919,
   "absolute_deadline_epoch": 1793360312.0,
@@ -48,5 +48,10 @@
       "run_commit": "9a3ae5958abefcb66b3f5cf4fd1da60410cb2dfb"
     }
   ],
-  "ended_or_updated_epoch": 1793213059.176161
+  "ended_or_updated_epoch": 1793213059.176161,
+  "execution_status": "SUCCEEDED",
+  "scientific_review": "COMPLETE",
+  "review_file": "review.json",
+  "review_sha256": "95fe56589dba678d6191639128eb40873e475355904a685b7528db31f10b3e23",
+  "reviewed_epoch": 1793213573.0314975
 }

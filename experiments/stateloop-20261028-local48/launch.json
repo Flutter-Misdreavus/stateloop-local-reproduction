@@ -1,12 +1,12 @@
 {
-  "status": "SUCCEEDED_PENDING_REVIEW",
+  "status": "SUCCEEDED_REVIEWED",
   "launch_commit": "4c35362a19102be28116af125b426f6f9a7e3533",
   "started_epoch": 1793192789.0351555,
   "data_execution_commit": "683d216",
   "preparation_pid": 2104592,
   "preparation_deadline_epoch": 1793209112.0,
   "absolute_deadline_epoch": 1793360312.0,
-  "scientific_review": "PENDING",
+  "scientific_review": "COMPLETE",
   "last_checked_epoch": 1793193149.4287915,
   "smoke_gate": {
     "status": "MET",
@@ -14,5 +14,9 @@
     "tokens": 524288,
     "dev_nll_reduction": 2.905435024044513
   },
-  "ended_or_updated_epoch": 1793213076.292775
+  "ended_or_updated_epoch": 1793213076.292775,
+  "execution_status": "SUCCEEDED",
+  "review_file": "review.json",
+  "review_sha256": "95fe56589dba678d6191639128eb40873e475355904a685b7528db31f10b3e23",
+  "reviewed_epoch": 1793213573.0314975
 }
