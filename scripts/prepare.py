@@ -31,7 +31,7 @@ def fetch(url, target, expected=None):
         return
     target.parent.mkdir(parents=True, exist_ok=True)
     tmp = target.with_suffix(target.suffix + ".part")
-    subprocess.run(["curl", "-fL", "--retry", "2", "--retry-all-errors", "--connect-timeout", "15", "--max-time", "1200", "-o", str(tmp), url], check=True)
+    subprocess.run(["curl", "-fL", "--continue-at", "-", "--retry", "2", "--retry-all-errors", "--connect-timeout", "15", "--max-time", "7200", "-o", str(tmp), url], check=True)
     if expected and sha(tmp) != expected:
         raise RuntimeError("SHA256 mismatch: " + target.name)
     tmp.replace(target)

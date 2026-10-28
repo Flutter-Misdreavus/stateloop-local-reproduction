@@ -1,0 +1,81 @@
+{
+  "run_commit": "858b99e831e8d5c6b669bc89ab473da930fd5f4f",
+  "mode": "benchmark",
+  "candidate": "preferred",
+  "device": "Tesla V100-SXM2-32GB",
+  "torch": "2.2.2+cu121",
+  "started_epoch": 1793190418.918203,
+  "status": "PASSED",
+  "records": [
+    {
+      "candidate": "preferred",
+      "variant": "vanilla",
+      "config": {
+        "vocab_size": 50304,
+        "layers": 8,
+        "width": 384,
+        "heads": 6,
+        "ffn": 1024,
+        "state_width": 384,
+        "loops": 4,
+        "seq_len": 512,
+        "variant": "vanilla"
+      },
+      "params": 52795776,
+      "micro_batch": 8,
+      "measured_steps": 10,
+      "tokens_per_second": 31687.69513707638,
+      "elapsed_s": 1.292615314014256,
+      "peak_memory_bytes": 5999016960,
+      "last_loss": 6.38545560836792,
+      "last_grad_norm": 0.8597599864006042
+    },
+    {
+      "candidate": "preferred",
+      "variant": "reset",
+      "config": {
+        "vocab_size": 50304,
+        "layers": 8,
+        "width": 384,
+        "heads": 6,
+        "ffn": 1024,
+        "state_width": 384,
+        "loops": 4,
+        "seq_len": 512,
+        "variant": "reset"
+      },
+      "params": 53387136,
+      "micro_batch": 8,
+      "measured_steps": 10,
+      "tokens_per_second": 31139.17998983187,
+      "elapsed_s": 1.3153846701607108,
+      "peak_memory_bytes": 6264042496,
+      "last_loss": 6.109159469604492,
+      "last_grad_norm": 1.2677563428878784
+    },
+    {
+      "candidate": "preferred",
+      "variant": "persistent",
+      "config": {
+        "vocab_size": 50304,
+        "layers": 8,
+        "width": 384,
+        "heads": 6,
+        "ffn": 1024,
+        "state_width": 384,
+        "loops": 4,
+        "seq_len": 512,
+        "variant": "persistent"
+      },
+      "params": 53387136,
+      "micro_batch": 8,
+      "measured_steps": 10,
+      "tokens_per_second": 30894.418913467765,
+      "elapsed_s": 1.3258058070205152,
+      "peak_memory_bytes": 6294615040,
+      "last_loss": 6.020988464355469,
+      "last_grad_norm": 1.154901146888733
+    }
+  ],
+  "ended_epoch": 1793190431.1067333
+}
