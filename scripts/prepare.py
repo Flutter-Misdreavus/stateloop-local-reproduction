@@ -51,9 +51,15 @@ def main():
     start = time.time()
     if (OUT / "manifest.json").exists():
         raise RuntimeError("Prepared data already exists; inspect manifest instead of overwriting")
+    sources = json.load(open("configs/sources.json"))
+    fetch(f"https://huggingface.co/api/datasets/{sources['dataset']}/revision/{sources['dataset_revision']}?blobs=true", "runtime/metadata/dataset.json")
+    fetch(f"https://huggingface.co/api/models/{sources['tokenizer']}/revision/{sources['tokenizer_revision']}", "runtime/metadata/tokenizer.json")
     data_meta = json.load(open("runtime/metadata/dataset.json"))
     tok_meta = json.load(open("runtime/metadata/tokenizer.json"))
     rev, trev = data_meta["sha"], tok_meta["sha"]
+    assert rev == sources["dataset_revision"] and trev == sources["tokenizer_revision"]
+    OUT.mkdir(parents=True, exist_ok=True)
+    EVIDENCE.mkdir(parents=True, exist_ok=True)
     fetch(f"https://huggingface.co/EleutherAI/pythia-70m/resolve/{trev}/tokenizer.json", "runtime/tokenizer/tokenizer.json")
     tokenizer = Tokenizer.from_file("runtime/tokenizer/tokenizer.json")
     vocab = tokenizer.get_vocab_size()
