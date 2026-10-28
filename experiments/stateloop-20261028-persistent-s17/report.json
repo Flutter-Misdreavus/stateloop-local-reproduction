@@ -19,8 +19,8 @@
   "frozen_config_sha256": "39a0cf909697800185666a5b7b4a58489a1a65ab642b435fc187a0f7328c5b75",
   "data_manifest_sha256": "afba448f63468da5c8aef844bdb5f2c2d409a12d6f9b590717dd61b99be50be3",
   "target_tokens": 99991552,
-  "tokens": 26214400,
-  "steps": 1600,
+  "tokens": 54067200,
+  "steps": 3300,
   "started_epoch": 1793199702.8260474,
   "failures": [],
   "reliability": "PENDING",
@@ -31,8 +31,8 @@
     "tokens": 1000000
   },
   "wall_deadline_epoch": 1793315657.5557919,
-  "last_train_nll": 4.84215772151947,
-  "last_lr": 0.00026135782674320426,
+  "last_train_nll": 4.2275779247283936,
+  "last_lr": 0.00015175886349252224,
   "peak_memory_bytes": 6487782912,
-  "last_progress_epoch": 1793200564.6845942
+  "last_progress_epoch": 1793201467.146823
 }
