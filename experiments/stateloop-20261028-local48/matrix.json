@@ -1,0 +1,45 @@
+{
+  "status": "RUNNING",
+  "supervisor_commit": "659fe92ddd1645342adda5f47bcec0a19f9de508",
+  "started_epoch": 1793193257.5557919,
+  "absolute_deadline_epoch": 1793360312.0,
+  "training_deadline_epoch": 1793315657.5557919,
+  "runs": [
+    {
+      "variant": "vanilla",
+      "seed": 17,
+      "run_id": "stateloop-20261028-vanilla-s17",
+      "status": "RUNNING"
+    },
+    {
+      "variant": "reset",
+      "seed": 17,
+      "run_id": "stateloop-20261028-reset-s17",
+      "status": "PENDING"
+    },
+    {
+      "variant": "persistent",
+      "seed": 17,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "status": "PENDING"
+    },
+    {
+      "variant": "persistent",
+      "seed": 42,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "status": "PENDING"
+    },
+    {
+      "variant": "reset",
+      "seed": 42,
+      "run_id": "stateloop-20261028-reset-s42",
+      "status": "PENDING"
+    },
+    {
+      "variant": "vanilla",
+      "seed": 42,
+      "run_id": "stateloop-20261028-vanilla-s42",
+      "status": "PENDING"
+    }
+  ]
+}
