@@ -8,6 +8,8 @@ Preparation started 2026-10-28 11:38:32 UTC. Absolute deadline: **2026-10-30 11:
 
 The preferred 52.8M/53.4M models passed structural checks, FP16 checks and tiny-data fitting. See [preflight review](experiments/stateloop-20261028-local48/preflight-review.md) and its linked JSON evidence. These checks are not language-model results.
 
+The local managed service is active. [launch.json](experiments/stateloop-20261028-local48/launch.json) tracks data preparation and the real-data smoke gate before the formal matrix begins. The full workflow stops on a failed gate and preserves the failure; it does not silently change settings or retry scientific results.
+
 When formal execution starts, [matrix.json](experiments/stateloop-20261028-local48/matrix.json) records live stage status. At completion, [assessment.json](experiments/stateloop-20261028-local48/assessment.json) and [results.md](experiments/stateloop-20261028-local48/results.md) contain automated measurements. These links are created by the relevant stage; automated completion is not scientific review. Stage results and hourly progress snapshots are pushed to this repository.
 
 ## Registered comparison
@@ -25,7 +27,13 @@ python -m pytest -q tests
 python scripts/prepare.py
 python -m stateloop.preflight benchmark --candidate preferred --output experiments/stateloop-20261028-local48/benchmark-preferred.json
 python -m stateloop.preflight overfit --candidate preferred --output experiments/stateloop-20261028-local48/overfit-preferred.json
-# After source integrity and real-data smoke review, use the committed frozen.json:
+# Generate and commit a smoke configuration after data integrity checks:
+python scripts/freeze.py --stage smoke
+# Commit configs/smoke.json before execution, then:
+python -m stateloop.train --variant persistent --seed 123 --run-id stateloop-20261028-smoke --config configs/smoke.json
+# After reviewing smoke/report.json, generate and commit the formal configuration:
+python scripts/freeze.py --stage formal
+# Commit configs/frozen.json and configs/protocol.json before execution, then:
 python -m stateloop.supervise
 ```
 

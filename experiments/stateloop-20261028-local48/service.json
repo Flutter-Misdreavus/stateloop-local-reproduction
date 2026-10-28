@@ -1,0 +1,13 @@
+{
+  "unit": "stateloop-local48.service",
+  "execution": "local user systemd service",
+  "verified_state": "active/running",
+  "launch_commit": "4c35362a19102be28116af125b426f6f9a7e3533",
+  "started_at_utc": "2026-10-28T13:06:26Z",
+  "absolute_deadline_utc": "2026-10-30T11:38:32Z",
+  "publication": "stage boundaries and hourly during training",
+  "workflow": ["pinned data preparation", "artifact hash checks", "real-data training smoke", "formal protocol freeze and commit", "six paired training runs", "held-out evaluation and state interventions"],
+  "gate_failure": "stop and publish failure evidence; no unbounded scientific retry",
+  "scientific_review": "PENDING",
+  "automatic_conversation_wakeup": false
+}
