@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "run_id": "stateloop-20261028-local48",
-  "ready": false,
-  "status": "PREPARING",
+  "ready": true,
+  "status": "FROZEN",
   "started_at_utc": "2026-10-28T11:38:32Z",
   "deadline_utc": "2026-10-30T11:38:32Z",
   "hypothesis": "At matched parameters and original-token training budgets, persistent state lowers held-out token NLL relative to resetting state before every loop update.",
@@ -24,16 +24,17 @@
   },
   "dataset": {
     "repository": "EleutherAI/the_pile_deduplicated",
-    "revision": "PENDING_RESOLUTION",
+    "revision": "fcbfcfde4222cbb1acd1d33bad0be250ee14b1bb",
     "tokenizer": "EleutherAI/pythia-70m",
-    "tokenizer_revision": "PENDING_RESOLUTION",
+    "tokenizer_revision": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
     "sample_seed": 20261028,
     "train_token_cap": 100007936,
     "dev_tokens": 1000000,
     "calibration_tokens": 500000,
     "test_tokens": 1000000,
     "split": "salted normalized-document SHA256 hash modulo 1000: train<975,dev 975..984,calibration 985..989,test>=990; exact document and 512-token cross-split duplicate filtering",
-    "public_data": false
+    "public_data": false,
+    "manifest_sha256": "afba448f63468da5c8aef844bdb5f2c2d409a12d6f9b590717dd61b99be50be3"
   },
   "models": {
     "preferred": {
@@ -55,7 +56,8 @@
     "vocab_size": "FROM_PINNED_TOKENIZER",
     "tied_embeddings": false,
     "mixer": "identity",
-    "dropout": 0
+    "dropout": 0,
+    "selected": "preferred"
   },
   "training": {
     "precision": "FP16 autocast; FP32 state recurrence, normalization statistics, logits loss",
@@ -65,7 +67,7 @@
       0.9,
       0.95
     ],
-    "eps": 1e-8,
+    "eps": 1e-08,
     "weight_decay": 0.1,
     "no_decay": [
       "bias",
@@ -78,7 +80,7 @@
     "cosine_min_ratio": 0.1,
     "minimum_tokens": 50000000,
     "maximum_tokens": 100000000,
-    "tokens": "FROZEN_AFTER_THROUGHPUT_PREFLIGHT",
+    "tokens": 99991552,
     "full_loop_backprop": true,
     "paired_initialization": true
   },
@@ -87,7 +89,7 @@
       {
         "id": "k1_equivalence",
         "stage": "preflight",
-        "threshold": 0.00001,
+        "threshold": 1e-05,
         "operator": "<=",
         "metric": "max_abs_logit_difference",
         "basis": "old state is zero; persistent/reset must coincide at K=1 in FP32"
@@ -95,7 +97,7 @@
       {
         "id": "zero_read_equivalence",
         "stage": "preflight",
-        "threshold": 0.00001,
+        "threshold": 1e-05,
         "operator": "<=",
         "metric": "max_abs_logit_difference",
         "basis": "all state reads zero recovers vanilla"
@@ -103,7 +105,7 @@
       {
         "id": "causality",
         "stage": "preflight",
-        "threshold": 0.00001,
+        "threshold": 1e-05,
         "operator": "<=",
         "metric": "max_abs_prefix_logit_difference"
       },
@@ -118,7 +120,7 @@
       {
         "id": "resume",
         "stage": "preflight",
-        "threshold": 0.00001,
+        "threshold": 1e-05,
         "operator": "<=",
         "metric": "FP32 resumed next-step parameter difference"
       },
