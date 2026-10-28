@@ -1,0 +1,53 @@
+{
+  "run_id": "stateloop-20261028-smoke",
+  "status": "SUCCEEDED",
+  "variant": "persistent",
+  "seed": 123,
+  "config": {
+    "vocab_size": 50304,
+    "layers": 8,
+    "width": 384,
+    "heads": 6,
+    "ffn": 1024,
+    "state_width": 384,
+    "loops": 4,
+    "seq_len": 512,
+    "variant": "persistent"
+  },
+  "params": 53387136,
+  "run_commit": "b7a7e57ccad67a692c87e64a7f747e29eacfd564",
+  "frozen_config_sha256": "1d2543d8359f6d863b9c5c0e38165f938d7183da5ade9c39b6ad5fbc3c083f44",
+  "data_manifest_sha256": "afba448f63468da5c8aef844bdb5f2c2d409a12d6f9b590717dd61b99be50be3",
+  "target_tokens": 524288,
+  "tokens": 524288,
+  "steps": 32,
+  "started_epoch": 1793193193.6991096,
+  "failures": [],
+  "reliability": "MET",
+  "initial_dev": {
+    "nll": 10.909885016676903,
+    "ppl": 54714.55368195516,
+    "nll_sum": 10909885.016676903,
+    "tokens": 1000000
+  },
+  "wall_deadline_epoch": 1793209112.0,
+  "last_train_nll": 7.891826152801514,
+  "last_lr": 2.9999999999999997e-05,
+  "peak_memory_bytes": 6484801024,
+  "last_progress_epoch": 1793193223.7429202,
+  "training_elapsed_s": 16.940693107433617,
+  "final_dev": {
+    "nll": 8.00444999263239,
+    "ppl": 2994.252787063491,
+    "nll_sum": 8004449.992632389,
+    "tokens": 1000000
+  },
+  "dev_nll_reduction": 2.905435024044513,
+  "checkpoint": {
+    "path": "runtime/runs/stateloop-20261028-smoke/final.pt",
+    "sha256": "30b0fd2966f7e20a43799da4c6d9d680d7fc216e7a22b0504177574efa807656",
+    "bytes": 213567079
+  },
+  "ended_or_updated_epoch": 1793193240.1390922,
+  "elapsed_s_this_invocation": 46.43999171257019
+}
