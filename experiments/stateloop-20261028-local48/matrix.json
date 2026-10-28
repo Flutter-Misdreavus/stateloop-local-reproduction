@@ -9,7 +9,8 @@
       "variant": "vanilla",
       "seed": 17,
       "run_id": "stateloop-20261028-vanilla-s17",
-      "status": "RUNNING"
+      "status": "SUCCEEDED",
+      "run_commit": "2fae18a4eee399613b0ff1ec916a3408a7bd1d25"
     },
     {
       "variant": "reset",

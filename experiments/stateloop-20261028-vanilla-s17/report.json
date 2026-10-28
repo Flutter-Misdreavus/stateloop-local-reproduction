@@ -1,6 +1,6 @@
 {
   "run_id": "stateloop-20261028-vanilla-s17",
-  "status": "RUNNING",
+  "status": "SUCCEEDED",
   "variant": "vanilla",
   "seed": 17,
   "config": {
@@ -19,11 +19,11 @@
   "frozen_config_sha256": "39a0cf909697800185666a5b7b4a58489a1a65ab642b435fc187a0f7328c5b75",
   "data_manifest_sha256": "afba448f63468da5c8aef844bdb5f2c2d409a12d6f9b590717dd61b99be50be3",
   "target_tokens": 99991552,
-  "tokens": 52428800,
-  "steps": 3200,
+  "tokens": 99991552,
+  "steps": 6103,
   "started_epoch": 1793193268.3577015,
   "failures": [],
-  "reliability": "PENDING",
+  "reliability": "MET",
   "initial_dev": {
     "nll": 10.907320425019265,
     "ppl": 54574.412972688275,
@@ -31,8 +31,23 @@
     "tokens": 1000000
   },
   "wall_deadline_epoch": 1793315657.5557919,
-  "last_train_nll": 4.441392421722412,
-  "last_lr": 0.0001588319129635196,
+  "last_train_nll": 4.0771103501319885,
+  "last_lr": 2.9999999999999997e-05,
   "peak_memory_bytes": 6177072640,
-  "last_progress_epoch": 1793194904.8370526
+  "last_progress_epoch": 1793196355.342944,
+  "training_elapsed_s": 3074.5935474559665,
+  "final_dev": {
+    "nll": 4.42136519972315,
+    "ppl": 83.2098058555541,
+    "nll_sum": 4421365.19972315,
+    "tokens": 1000000
+  },
+  "dev_nll_reduction": 6.485955225296115,
+  "checkpoint": {
+    "path": "runtime/runs/stateloop-20261028-vanilla-s17/final.pt",
+    "sha256": "08d2061008402cfefc4dc49f528b0e5edadf0089af6bebe2dd27bbca81fa3f98",
+    "bytes": 211199439
+  },
+  "ended_or_updated_epoch": 1793196371.8162465,
+  "elapsed_s_this_invocation": 3103.458553791046
 }
