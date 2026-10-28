@@ -1,5 +1,5 @@
 {
-  "status": "FORMAL_MATRIX",
+  "status": "SUCCEEDED_PENDING_REVIEW",
   "launch_commit": "4c35362a19102be28116af125b426f6f9a7e3533",
   "started_epoch": 1793192789.0351555,
   "data_execution_commit": "683d216",
@@ -13,5 +13,6 @@
     "run_commit": "b7a7e57ccad67a692c87e64a7f747e29eacfd564",
     "tokens": 524288,
     "dev_nll_reduction": 2.905435024044513
-  }
+  },
+  "ended_or_updated_epoch": 1793213076.292775
 }
