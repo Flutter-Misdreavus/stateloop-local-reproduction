@@ -1,0 +1,27 @@
+{
+  "ready": true,
+  "stage": "smoke",
+  "model": {
+    "layers": 8,
+    "width": 384,
+    "heads": 6,
+    "ffn": 1024,
+    "state_width": 384,
+    "vocab_size": 50304,
+    "loops": 4,
+    "seq_len": 512
+  },
+  "batch_sequences": 32,
+  "micro_batch": 8,
+  "tokens_per_run": 524288,
+  "data_manifest_sha256": "afba448f63468da5c8aef844bdb5f2c2d409a12d6f9b590717dd61b99be50be3",
+  "benchmark_sha256": "1a67f7433de37ab45f64426659298d37fa939c2c4aa3967395cd6feb185c3772",
+  "overfit_sha256": "ee85ab3333ed6c814aea1282ce87b2151d5aacfff9be1e7417540d75a3106e6d",
+  "freeze_script_commit": "7039a81e14ea63a748416c0182653f7885ba1f03",
+  "minimum_formal_tokens": 50000000,
+  "minimum_mean_persistence_effect_nats": 0.005,
+  "deadline_utc": "2026-10-30T11:38:32Z",
+  "seeds": [
+    123
+  ]
+}
