@@ -1,0 +1,20 @@
+{
+  "scope": "Observed publication incidents during the formal matrix; preparation incidents are documented in preflight-review.md.",
+  "repository": "Flutter-Misdreavus/stateloop-local-reproduction",
+  "branch": "main",
+  "incidents": [
+    {
+      "stage": "reset seed 17 halfway progress publication",
+      "failed_epoch": 1793198217.6299179,
+      "local_commit": "78ceba114e78d48e01a7799acf6e8ff5b3b8c9ff",
+      "error": "GitHub GraphQL repository metadata query returned EOF; visibility verification failed before push.",
+      "status_after_failure": "PENDING; local main commit retained",
+      "recovery": "Repeated the existing publication procedure; repository identity and public visibility verification succeeded, followed by a successful push and remote main verification.",
+      "recovered_epoch": 1793198237.978055,
+      "recovered_commit": "d2b3aa804308bfaa97be0c43a10f0003014cc54e",
+      "final_status": "RESOLVED",
+      "training_impact": "None observed; the same training process continued. No scientific rerun or configuration change.",
+      "evidence": "Agent-observed tool output and subsequent remote ref check. runtime/push-status.json was later replaced by newer successful publication status."
+    }
+  ]
+}
