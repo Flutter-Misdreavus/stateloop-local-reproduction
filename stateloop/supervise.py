@@ -43,7 +43,7 @@ def publish(stage):
         print("PUSH_PENDING: " + str(e), flush=True)
 
 
-def run_child(command, log_path, deadline, stage):
+def run_child(command, log_path, deadline, stage, publish_progress=True):
     with open(log_path, "a") as log:
         child = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
         next_publish = time.time()+3600
@@ -56,10 +56,10 @@ def run_child(command, log_path, deadline, stage):
                     os.killpg(child.pid, signal.SIGKILL)
                     child.wait()
                 raise TimeoutError(stage + " exceeded registered deadline")
-            if time.time() >= next_publish:
+            if publish_progress and time.time() >= next_publish:
                 publish("progress")
                 next_publish = time.time()+3600
-            dump("runtime/heartbeat.json", {"epoch": time.time(), "stage": stage, "child_pid": child.pid, "deadline": deadline, "note": "liveness only; consult actual training metrics"})
+            dump(f"runtime/heartbeat-{stage}.json", {"epoch": time.time(), "stage": stage, "child_pid": child.pid, "deadline": deadline, "note": "liveness only; consult actual training metrics"})
             time.sleep(15)
         if child.returncode:
             raise RuntimeError(f"{stage} exited with code {child.returncode}; no automatic scientific retry")

@@ -74,7 +74,7 @@ def main():
         status["status"]="FORMAL_MATRIX"
         dump(EVIDENCE/"launch.json",status)
         publish("formal-ready")
-        run_child([sys.executable,"-m","stateloop.supervise"],"runtime/supervisor.log",deadline_epoch(),"formal-matrix")
+        run_child([sys.executable,"-m","stateloop.supervise"],"runtime/supervisor.log",deadline_epoch(),"formal-matrix",publish_progress=False)
         status["status"]="SUCCEEDED_PENDING_REVIEW"
     except Exception as e:
         status.update(status="FAILED",error=f"{type(e).__name__}: {e}",review_required=True)
