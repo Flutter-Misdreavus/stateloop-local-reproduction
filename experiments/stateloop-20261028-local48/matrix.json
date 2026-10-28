@@ -16,7 +16,7 @@
       "variant": "reset",
       "seed": 17,
       "run_id": "stateloop-20261028-reset-s17",
-      "status": "PENDING"
+      "status": "RUNNING"
     },
     {
       "variant": "persistent",
