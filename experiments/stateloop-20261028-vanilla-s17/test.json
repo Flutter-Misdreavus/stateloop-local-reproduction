@@ -1,0 +1,13 @@
+{
+  "nll": 4.1157558768795175,
+  "ppl": 61.298530897964035,
+  "nll_sum": 4115755.876879518,
+  "tokens": 1000000,
+  "run_id": "stateloop-20261028-vanilla-s17",
+  "variant": "vanilla",
+  "seed": 17,
+  "run_commit": "2fae18a4eee399613b0ff1ec916a3408a7bd1d25",
+  "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+  "checkpoint_sha256": "08d2061008402cfefc4dc49f528b0e5edadf0089af6bebe2dd27bbca81fa3f98",
+  "documents": 753
+}

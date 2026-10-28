@@ -1,0 +1,324 @@
+{
+  "status": "SUCCEEDED",
+  "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+  "started_epoch": 1793212730.7003238,
+  "runs": [
+    {
+      "nll": 4.1157558768795175,
+      "ppl": 61.298530897964035,
+      "nll_sum": 4115755.876879518,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-vanilla-s17",
+      "variant": "vanilla",
+      "seed": 17,
+      "run_commit": "2fae18a4eee399613b0ff1ec916a3408a7bd1d25",
+      "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+      "checkpoint_sha256": "08d2061008402cfefc4dc49f528b0e5edadf0089af6bebe2dd27bbca81fa3f98",
+      "documents": 753
+    },
+    {
+      "nll": 4.0743728754586455,
+      "ppl": 58.81358557779241,
+      "nll_sum": 4074372.8754586456,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-reset-s17",
+      "variant": "reset",
+      "seed": 17,
+      "run_commit": "11a017f5001679786467b855a47e24c0646e93b0",
+      "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+      "checkpoint_sha256": "08cb54083663b91630e0d67797c0277a66ff54aa80f9c701a1aa1d0cc030c544",
+      "documents": 753
+    },
+    {
+      "nll": 4.0612007068653995,
+      "ppl": 58.04396303971425,
+      "nll_sum": 4061200.706865399,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "variant": "persistent",
+      "seed": 17,
+      "run_commit": "cb2a371c35107c6fb154ef5476b72aa3bb44c234",
+      "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+      "checkpoint_sha256": "7d5ace80216a84165f9f44a8fc00f6f1f2605f771071852a7b15b66358014342",
+      "documents": 753
+    },
+    {
+      "nll": 4.064998329223435,
+      "ppl": 58.264811174989596,
+      "nll_sum": 4064998.329223435,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "variant": "persistent",
+      "seed": 42,
+      "run_commit": "f88c7d9e96ea87dbf050970970b002123af145d4",
+      "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+      "checkpoint_sha256": "a55999e8544c9a69ff7ed5a2a9e23f421dff50342fa35462f2ef1c70ca3c5a4d",
+      "documents": 753
+    },
+    {
+      "nll": 4.081617838582291,
+      "ppl": 59.241235118458306,
+      "nll_sum": 4081617.838582291,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-reset-s42",
+      "variant": "reset",
+      "seed": 42,
+      "run_commit": "c39a3fe476fa44ea8581ddf1bb186e9c467e4c72",
+      "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+      "checkpoint_sha256": "399bc8dce3e64218626caf664926941d6f85be2ace978921c8125d51159c5bed",
+      "documents": 753
+    },
+    {
+      "nll": 4.12944290316667,
+      "ppl": 62.14329345767248,
+      "nll_sum": 4129442.9031666704,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-vanilla-s42",
+      "variant": "vanilla",
+      "seed": 42,
+      "run_commit": "9a3ae5958abefcb66b3f5cf4fd1da60410cb2dfb",
+      "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+      "checkpoint_sha256": "30d118bc1712698185e9e191ff9a876ab73b742f2a4748d3b6a8f91dd07f37a3",
+      "documents": 753
+    }
+  ],
+  "paired": [
+    {
+      "seed": 17,
+      "persistence": {
+        "difference_nats": 0.013172168593245992,
+        "document_bootstrap_95pct": [
+          0.01055558757703462,
+          0.015704735281221516
+        ],
+        "documents": 753,
+        "replicates": 2000,
+        "scope": "evaluation-document uncertainty conditional on one trained model pair; not training-seed uncertainty"
+      },
+      "total": {
+        "difference_nats": 0.054555170014118026,
+        "document_bootstrap_95pct": [
+          0.047994078483477184,
+          0.060888927550217145
+        ],
+        "documents": 753,
+        "replicates": 2000,
+        "scope": "evaluation-document uncertainty conditional on one trained model pair; not training-seed uncertainty"
+      }
+    },
+    {
+      "seed": 42,
+      "persistence": {
+        "difference_nats": 0.01661950935885592,
+        "document_bootstrap_95pct": [
+          0.01474005227163972,
+          0.01848098044329592
+        ],
+        "documents": 753,
+        "replicates": 2000,
+        "scope": "evaluation-document uncertainty conditional on one trained model pair; not training-seed uncertainty"
+      },
+      "total": {
+        "difference_nats": 0.0644445739432351,
+        "document_bootstrap_95pct": [
+          0.05660932428289922,
+          0.07199854965610165
+        ],
+        "documents": 753,
+        "replicates": 2000,
+        "scope": "evaluation-document uncertainty conditional on one trained model pair; not training-seed uncertainty"
+      }
+    }
+  ],
+  "interventions": [
+    {
+      "nll": 6.338576815006237,
+      "ppl": 565.9902291148675,
+      "nll_sum": 6338576.8150062375,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "feedback_off",
+      "delta_nll": 2.277376108140838
+    },
+    {
+      "nll": 8.493174928522587,
+      "ppl": 4881.3394005931505,
+      "nll_sum": 8493174.928522587,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "terminal_off",
+      "delta_nll": 4.431974221657187
+    },
+    {
+      "nll": 9.174411344985247,
+      "ppl": 9647.087593370008,
+      "nll_sum": 9174411.344985247,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "all_off",
+      "delta_nll": 5.113210638119847
+    },
+    {
+      "nll": 4.1006426752561165,
+      "ppl": 60.37907927103697,
+      "nll_sum": 4100642.6752561163,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "single_S1",
+      "delta_nll": 0.03944196839071701
+    },
+    {
+      "nll": 5.424224827622328,
+      "ppl": 226.83544157725146,
+      "nll_sum": 5424224.827622328,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "frozen_S1",
+      "delta_nll": 1.3630241207569282
+    },
+    {
+      "nll": 4.152254308322255,
+      "ppl": 63.57716139690992,
+      "nll_sum": 4152254.308322255,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "single_S2",
+      "delta_nll": 0.09105360145685548
+    },
+    {
+      "nll": 4.570638110772965,
+      "ppl": 96.60573526921249,
+      "nll_sum": 4570638.110772965,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "frozen_S2",
+      "delta_nll": 0.5094374039075653
+    },
+    {
+      "nll": 4.166090299240266,
+      "ppl": 64.4629280236018,
+      "nll_sum": 4166090.299240266,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "single_S3",
+      "delta_nll": 0.1048895923748665
+    },
+    {
+      "nll": 4.166090299240266,
+      "ppl": 64.4629280236018,
+      "nll_sum": 4166090.299240266,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s17",
+      "seed": 17,
+      "intervention": "frozen_S3",
+      "delta_nll": 0.1048895923748665
+    },
+    {
+      "nll": 5.963680970382239,
+      "ppl": 389.0395348199791,
+      "nll_sum": 5963680.970382239,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "feedback_off",
+      "delta_nll": 1.8986826411588034
+    },
+    {
+      "nll": 8.395469878596902,
+      "ppl": 4426.96655796961,
+      "nll_sum": 8395469.878596902,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "terminal_off",
+      "delta_nll": 4.330471549373467
+    },
+    {
+      "nll": 9.310176669935226,
+      "ppl": 11049.900141483275,
+      "nll_sum": 9310176.669935226,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "all_off",
+      "delta_nll": 5.2451783407117905
+    },
+    {
+      "nll": 4.100518277985132,
+      "ppl": 60.371568745505215,
+      "nll_sum": 4100518.277985132,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "single_S1",
+      "delta_nll": 0.03551994876169662
+    },
+    {
+      "nll": 5.146022134459479,
+      "ppl": 171.7469434537665,
+      "nll_sum": 5146022.13445948,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "frozen_S1",
+      "delta_nll": 1.0810238052360441
+    },
+    {
+      "nll": 4.140407663410883,
+      "ppl": 62.828429080899355,
+      "nll_sum": 4140407.6634108834,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "single_S2",
+      "delta_nll": 0.075409334187448
+    },
+    {
+      "nll": 4.4986916084242585,
+      "ppl": 89.89943066030972,
+      "nll_sum": 4498691.608424258,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "frozen_S2",
+      "delta_nll": 0.43369327920082323
+    },
+    {
+      "nll": 4.158304225277779,
+      "ppl": 63.96296380314396,
+      "nll_sum": 4158304.2252777787,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "single_S3",
+      "delta_nll": 0.09330589605434358
+    },
+    {
+      "nll": 4.158304225277779,
+      "ppl": 63.96296380314396,
+      "nll_sum": 4158304.2252777787,
+      "tokens": 1000000,
+      "run_id": "stateloop-20261028-persistent-s42",
+      "seed": 42,
+      "intervention": "frozen_S3",
+      "delta_nll": 0.09330589605434358
+    }
+  ],
+  "decision": {
+    "mean_persistence_delta_nats": 0.014895838976050957,
+    "both_positive": true,
+    "minimum_mean_effect": 0.005,
+    "preliminary_support": true,
+    "interpretation": "scaled mechanism reproduction; two seeds and limited pretraining do not establish general validity or invalidity",
+    "gpt_review": "PENDING"
+  },
+  "ended_epoch": 1793213053.2618666
+}

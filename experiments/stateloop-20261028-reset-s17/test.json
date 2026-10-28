@@ -1,0 +1,13 @@
+{
+  "nll": 4.0743728754586455,
+  "ppl": 58.81358557779241,
+  "nll_sum": 4074372.8754586456,
+  "tokens": 1000000,
+  "run_id": "stateloop-20261028-reset-s17",
+  "variant": "reset",
+  "seed": 17,
+  "run_commit": "11a017f5001679786467b855a47e24c0646e93b0",
+  "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+  "checkpoint_sha256": "08cb54083663b91630e0d67797c0277a66ff54aa80f9c701a1aa1d0cc030c544",
+  "documents": 753
+}

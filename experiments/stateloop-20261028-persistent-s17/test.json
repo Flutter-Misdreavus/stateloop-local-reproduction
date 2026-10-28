@@ -1,0 +1,13 @@
+{
+  "nll": 4.0612007068653995,
+  "ppl": 58.04396303971425,
+  "nll_sum": 4061200.706865399,
+  "tokens": 1000000,
+  "run_id": "stateloop-20261028-persistent-s17",
+  "variant": "persistent",
+  "seed": 17,
+  "run_commit": "cb2a371c35107c6fb154ef5476b72aa3bb44c234",
+  "evaluation_commit": "cfc824567f722c6408f6d5c7d5416be889559f79",
+  "checkpoint_sha256": "7d5ace80216a84165f9f44a8fc00f6f1f2605f771071852a7b15b66358014342",
+  "documents": 753
+}
